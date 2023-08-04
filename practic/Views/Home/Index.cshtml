@@ -1,0 +1,38 @@
+﻿@using System.Data;
+@using practic.STUDENT_INFORMATION_MODELS;
+@model List<Student>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <h1>App Settings</h1>
+@*
+    <p>Default: @Model.Logging.LogLevel.Default</p>
+    <p>Microsoft.AspNetCore: @Model.Logging.LogLevel.MicrosoftAspNetCore</p>*@
+    
+    @foreach (Student row in Model)
+    {
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">@row.StudentName</a>.</p>
+    }
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+
+
+
+
+
+
+
+@*    <ul>
+        <li> Default : @ViewBag.config["Default"]</li>
+        <li> Microsoft.AspNetCore : @ViewBag.config["Microsoft.AspNetCore"] </li>
+    </ul>*@
+   @* @using Microsoft.Extensions.Configuration
+    @inject IConfiguration Configuration
+    @Configuration.GetSection("Logging:LogLevel")["Default"]
+    @Configuration.GetSection("Logging:LogLevel")["Microsoft.AspNetCore"]*@

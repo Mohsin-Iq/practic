@@ -1,0 +1,86 @@
+﻿@model List<practic.STUDENT_INFORMATION_MODELS.Student> 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Information</title>
+</head>
+<a asp-action="Create">Create a new Student</a>
+<body>
+   
+    <h1>Student Information</h1>
+    <table style="margin-left:20px">
+        <thead style ="margin-left:20px">
+            <tr style="margin-left:20px">
+                <th>Student ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            @foreach (var student in Model)
+            {
+                <tr style="margin-left:20px">
+                    <td>@student.StudentID</td>
+                    <td>@student.StudentName</td>
+                    <td>@student.Email</td>
+                    <td>@student.Password</td>
+                    <td>@student.Phone</td>
+                    <td style="margin-left:20px">
+                        @Html.ActionLink("Edit", "Edit",  new { id=student.StudentID }, new {@class="ui-btn"}  )
+                        @Html.ActionLink("Delete", "Delete",  new { id=student.StudentID }, new {@class="ui-btn"}  )
+                        @Html.ActionLink("Details", "Details",  new { id=student.StudentID }, new {@class="ui-btn"}  )
+                </td>  
+                </tr>
+                }
+        </tbody>    
+    </table>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*
+@using Microsoft.Extensions.Options;
+@using practic.STUDENT_INFORMATION_MODELS;
+@inject IOptions<Students> logger;
+@{
+    ViewData["Title"] = "Home Page";
+}
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <td>StudentID</td>
+            <td>StudentName</td>
+            <td>Email</td>
+            <td>Password</td>
+            <td>Phone</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+                <td>@logger.Value.StudentID</td>
+                <td>@logger.Value.StudentName</td>
+                <td>@logger.Value.Email</td>
+                <td>@logger.Value.Password</td>
+                <td>@logger.Value.Phone</td>
+            </tr>
+        
+    </tbody>
+</table>*@
